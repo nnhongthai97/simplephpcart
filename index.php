@@ -56,15 +56,20 @@ $database = new Database();
         if(!empty($products)) :?>
             <?php foreach ($products as $product):?>
                 <div class="col-sm-6">
-                    <form name="product<?php echo $product['id']?>" action="" method="post">
+                    <form action="process.php" name="product<?php echo $product["id"]?>" method="post">
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top"  style="height:250px; width: auto; display: block;" src="images/<?php echo $product['product_image']?>" data-holder-rendered="true">
                             <div class="card-body">
                                 <p class="card-text" style="font-weight:bold">Product <?php echo $product['product_name']?></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="form-inline">
-                                        <input type="text" class="form-control" id="quantity1" value="1">
-                                        <label style="margin-left: 10px"><button type="button" class="btn btn-sm btn-outline-secondary">thêm vào giỏ hàng</button></label>
+                                        <input type="text" class="form-control" id="quantity" value="1">
+                                        <input type="hidden" class="form-control" name="product_id" value="<?php echo $product["id"]?>">
+                                        <input type="hidden" class="form-control" name="action" value="add">
+                                        <label style="margin-left: 10px">
+                                            <input type="submit" name="submit" class="btn btn-primary" value="thêm vào giỏ hàng">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">thêm vào giỏ hàng</button>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
