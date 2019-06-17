@@ -15,6 +15,16 @@ if (isset($_POST) && !empty($_POST)){ //check $_POST có dữ liệu được g�
                     echo "<pre>";
 //                    current để lấy giá trị trong mảng vd mang lồng mảng thì ta lấy giá trị trong mang;
                     if (isset($_SESSION["cart_item"]) && !empty($_SESSION["cart_item"])){
+                        foreach ($_SESSION["cart_item"] as $key_id => $val_id){
+                            echo"<br>".'duyệt mảng';
+                            echo"<pre>";
+                            print_r($key_id);
+                            echo"</pre>";
+                            echo"<pre>";
+                            print_r($val_id);
+                            echo"</pre>";
+
+                        }
 //                        nếu đúng  giỏ hàng này có dữ liệu
                         if(isset($_SESSION['cart_item'][$product_id])){
                             /**
